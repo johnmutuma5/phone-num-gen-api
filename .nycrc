@@ -1,7 +1,7 @@
 {
   "reporter"   : ["text", "text-summary", "lcov", "html"],
   "include"    : ["src/**/*.js"],
-  "exclude"    : ["src/**/__test__/**/*"],
+  "exclude"    : ["src/**/__test__/**/*", "src/index.js"],
   "require"    : ["@babel/register"],
   "sourceMap"  : false,
   "instrument" : false,

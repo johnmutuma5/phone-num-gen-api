@@ -14,7 +14,7 @@ app.use(appRouter);
 // handle all unfound routes
 app.use('*', (req, res) => (
   res.status(404).json({
-    message: 'Not Found'
+    message: 'Not found'
   })
 ));
 
