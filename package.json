@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "NODE_ENV=development DEBUG=log nodemon --exec babel-node src/index.js",
-    "test": "NODE_ENV=test nyc _mocha */**/__test__/**/*.spec.js",
+    "test": "NODE_ENV=test nyc _mocha src/**/*.spec.js",
     "coverage:coveralls": "NODE_ENV=test nyc report --reporter=text-lcov | coveralls"
   },
   "author": "John Mutuma",
@@ -19,6 +19,7 @@
     "@babel/register": "^7.4.4",
     "babel-plugin-istanbul": "^5.1.4",
     "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
     "coveralls": "^3.0.4",
     "mocha": "^6.1.4",
     "nyc": "^14.1.1"

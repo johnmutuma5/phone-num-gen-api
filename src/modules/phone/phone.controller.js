@@ -10,17 +10,21 @@ export default class PhoneController {
     const expectedTotalNumsCount = 10000;
     const maxPhoneNum = minPhoneNum + expectedTotalNumsCount;
 
-    const phoneNum = generateRandomNum(minPhoneNum, maxPhoneNum, '0');
+    let phoneNum = generateRandomNum(minPhoneNum, maxPhoneNum, '0');
     const phone = new Phone(phoneNum);
+
+    while((await Phone.exists(phone))) {
+      phoneNum = generateRandomNum(minPhoneNum, maxPhoneNum, '0');
+    }
     try {
-      const file = await phone.add(phoneNum);
-      console.log(file);
+      await phone.add(phoneNum);
       return res.status(201).json({
         message: 'New phone number generated',
         phoneNum,
       });
     } catch (error) {
-      conosle.error(error);
+      /* istanbul ignore next */
+      console.error(error);
       return res.status(500).json({
         message: 'An error occured while generating a phone number. Please try again',
       })
