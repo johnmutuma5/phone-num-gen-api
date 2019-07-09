@@ -7,4 +7,8 @@ phoneRouter
   .route('/phone/generate')
   .post(PhoneController.generate)
 
+phoneRouter
+  .route('/phone/list')
+  .get(PhoneController.listPhoneNumbers)
+
 export default phoneRouter;
