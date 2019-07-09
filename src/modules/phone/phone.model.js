@@ -16,4 +16,11 @@ export default class Phone {
     const existingNums = await fsp.readFile(NUMBERS_PATH);
     return existingNums.includes(phone.num);
   }
+
+  static async getPhoneNumbers () {
+    return (await fsp.readFile(NUMBERS_PATH))
+      .toString('utf-8')
+      .split('\n')
+      .filter(num => num.length);
+  }
 }

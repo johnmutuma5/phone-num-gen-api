@@ -30,4 +30,13 @@ export default class PhoneController {
       })
     }
   }
+
+  static async listPhoneNumbers (req, res, next) {
+    const phoneNumbers = (await Phone.getPhoneNumbers())
+
+    return res.status(200).json({
+      phoneNumbers,
+      message: 'Phone numbers generated successfully',
+    });
+  }
 }
